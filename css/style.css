@@ -1,0 +1,40 @@
+html,
+body,
+main {
+  height: 100vh;
+}
+
+#Fixed {
+  background-color: lightgray;
+  border-color: green;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  top: 0px;
+}
+
+.box {
+  border: 3px solid;
+}
+
+#red {
+  border-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#blue {
+  border-color: blue;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+.outter {
+  height: 80%;
+  width: 40%;
+  margin: 15px;
+}

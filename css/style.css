@@ -1,20 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 main {
   height: 100vh;
 }
 
-#Fixed {
+main {
+  display: flex;
+}
+
+#header {
   background-color: lightgray;
   border-color: green;
-  position: fixed;
   width: 100%;
-  z-index: 1;
   top: 0px;
+  text-align: center;
 }
 
 .box {
-  border: 3px solid;
+  border: 5px solid;
 }
 
 #red {
@@ -28,9 +35,16 @@ main {
   border-color: blue;
 }
 
-main {
-  display: flex;
-  flex-direction: row;
+#magenta {
+  border-color: magenta;
+  height: 15%;
+  margin: 0 10px 10px 10px;
+}
+
+#yellow {
+  border-color: yellow;
+  height: 80%;
+  margin: 0 10px 10px 10px;
 }
 
 .outter {

@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vacation Destinations Wishlist</title>
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -25,35 +32,44 @@
           type="text"
           placeholder="Enter the name of the destination"
           name="Destination name"
-          id=""
+          id="input-destination-name"
         />
         <p>Location</p>
         <input
           type="text"
           placeholder="Where is it located?"
           name="Location"
-          id=""
+          id="input-location"
         />
         <p>Photo</p>
         <input
           type="url"
           placeholder="Enter an image url of the place"
           name="Photo"
-          id=""
+          id="input-photo-url"
         />
         <p>Description</p>
         <input
           type="text"
           placeholder="Where is it located?"
           name="Description"
-          id=""
+          id="input-description"
         />
-        <button>Add to list</button>
+        <div>
+          <input
+            class="btn btn-primary"
+            id="btn-add-to-list"
+            type="submit"
+            value="Add to list"
+          />
+        </div>
       </section>
       <section id="blue" class="outter box">
         <h3 id="magenta" class="box">Enter destination details</h3>
         <p id="yellow" class="box"></p>
       </section>
     </main>
+
+    <script src="./js/script.js"></script>
   </body>
 </html>

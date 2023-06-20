@@ -9,9 +9,11 @@ document.getElementById("btn-add-to-list").onclick = () => {
         photoUrl: getInputValue("input-photo-url"),
         description: getInputValue("input-description")
     };
+    
+    document.getElementById("magenta").innerHTML = destination;
+    document.getElementById("destination-image").src = getInputValue("input-photo-url");
 }
 
-console.log(vacationDestinationsList);
 
 function getInputValue(id) {
     return document.getElementById(id).value;

@@ -2,16 +2,6 @@
   box-sizing: border-box;
 }
 
-html,
-body,
-main {
-  height: 100vh;
-}
-
-main {
-  display: flex;
-}
-
 #header {
   border-color: green;
   width: 100%;
@@ -27,40 +17,4 @@ main {
 body {
   background-image: url("https://wallpapercave.com/wp/wp4381505.jpg");
   background-size: 100%;
-}
-
-.img-fluid {
-  max-width: 50%;
-  max-height: 50%;
-}
-
-.box {
-  border: 5px solid;
-}
-
-#red {
-  border-color: red;
-  margin: auto;
-}
-
-#blue {
-  border-color: blue;
-}
-
-#magenta {
-  border-color: magenta;
-  height: 15%;
-  margin: 0 10px 10px 10px;
-}
-
-#yellow {
-  border-color: yellow;
-  height: 80%;
-  margin: 0 10px 10px 10px;
-}
-
-.outter {
-  height: 80%;
-  width: 40%;
-  margin: 15px;
 }

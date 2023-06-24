@@ -4,6 +4,8 @@ function createCard(destination, location, photoUrl, description) {
     const newCard = document.createElement("div")
     photoUrl = photoUrl ? photoUrl : "https://images7.alphacoders.com/853/thumbbig-853456.webp"
 
+    const unsplashAPIUrl = `https://api.unsplash.com/search/photos/?client_id=hz-ZNN_jBA2uRBE9Z3WYtER3ghhuV7KOL6L-BU_85Lk&query=${destination}`;
+
     newCard.innerHTML = `
     <div class="card" style="width: 18rem;">
         <img src=${photoUrl} class="card-img-top photo-url" alt=${destination}>
@@ -25,9 +27,6 @@ function createCard(destination, location, photoUrl, description) {
         </div>
     </div>
     `
-    // location ? {} : newCard.querySelector(".location").style.display = "none"
-    // description ? {} : newCard.querySelector(".description").style.display = "none"
-
     newCard.querySelectorAll(".show").forEach(element => {
         element.querySelector(".editable").textContent ? {} : element.style.display = "none"
     });
@@ -69,26 +68,6 @@ function handleDoneBtn(e) {
     // get the selected card element
     const card = e.target.closest(".card")
 
-    // // Make text lines noneditable
-    // card.querySelectorAll(".show").forEach(element => {
-    //     element.querySelector(".editable").textContent ? {} : element.style.display = "none"
-    // });
-
-    // // undo photo's onclick event
-    // card.querySelector(".photo-url").onclick = () => {}
-    // card.querySelectorAll(".editable").forEach(element => {
-    //     element.setAttribute("contentEditable", "false")
-    // });
-
-    // // replace Done button with Edit button
-    // const editBtn = document.createElement("a")
-    // editBtn.setAttribute("href", "#")
-    // editBtn.setAttribute("class", "btn btn-warning material-symbols-outlined edit-btn")
-    // editBtn.textContent = "edit"
-    // e.target.parentElement.replaceChild(editBtn, e.target)
-
-    // replace the above code with below ones
-    // get input from user and replace the old card with newCard utilizing createCard()
     const destination = card.querySelector(".text-destination").textContent;
     const location = card.querySelector(".text-location").textContent;
     const photoUrl = card.querySelector(".photo-url").getAttribute("src");

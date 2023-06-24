@@ -1,4 +1,4 @@
-export {createCard, handleEditBtn, handleDoneBtn, handleDeleteBtn}
+export { createCard, handleCardClick }
 
 function createCard(destination, location, photoUrl, description) {
     const newCard = document.createElement("div")
@@ -32,6 +32,13 @@ function createCard(destination, location, photoUrl, description) {
     });
 
     return newCard
+}
+
+function handleCardClick(e) {
+    e.target.classList.contains("delete-btn") ? handleDeleteBtn(e)
+        : e.target.classList.contains("edit-btn") ? handleEditBtn(e)
+        : e.target.classList.contains("done-btn") ? handleDoneBtn(e)
+        : {}
 }
 
 function handleEditBtn(e) {

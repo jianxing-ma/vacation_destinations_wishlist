@@ -11,11 +11,11 @@ function createCard(destination, location, description) {
         <div class="card-body">
             <h5 class="card-title destination">
                 <span class="material-symbols-outlined icon icon-destination">push_pin</span>
-                <span class="editable text-destination" style="display:inline-block;">${destination}</span>
+                <span class="editable text-destination" style="display:inline-block; font-family: 'Belanosima', sans-serif;">${destination}</span>
             </h5>
             <p class="card-text show location">
                 <span class="material-symbols-outlined icon icon-location">pin_drop</span>
-                <span class="editable text-location" style="display:inline-block;">${location}</span>
+                <b class="editable text-location" style="display:inline-block;">${location}</b>
             </p>
             <p class="card-text show description">
                 <span class="material-symbols-outlined icon icon-description">description</span>
@@ -37,15 +37,8 @@ function createCard(destination, location, description) {
     fetch(unsplashAPIUrl)
     .then(response => response.json())
     .then(data => {
-        const photos = data.results;
-        if (photos.length === 0) {
-            const imgPlaceHolderUrl = "https://images7.alphacoders.com/853/thumbbig-853456.webp";
-            newCard.querySelector(".photo-url").setAttribute("src", imgPlaceHolderUrl);
-        }else {
-            const randIdx = Math.floor(Math.random() * photos.length);
-            const photoUrl = photos[randIdx].urls.small;
-            newCard.querySelector(".photo-url").setAttribute("src", photoUrl);
-        }
+        const photoUrl = generatePhotoUrl(data);
+        newCard.querySelector(".photo-url").setAttribute("src", photoUrl);   
     });
 
     return newCard;
@@ -106,23 +99,18 @@ function handleDeleteBtn(e) {
     e.target.closest(".card").remove();
 }
 
-function generatePhotoUrl(userInput) {
-    var result = null;
+function generatePhotoUrl(promise) {
+    let result;
+    
+    const photos = promise.results;
+    if (photos.length === 0) {
+        result = "https://images7.alphacoders.com/853/thumbbig-853456.webp";
+    }else {
+        const randIdx = Math.floor(Math.random() * photos.length);
+        console.log(randIdx);
+        result = photos[randIdx].urls.small;
+    }
 
-    // generting image according to destination from user input untilizing Unsplash API
-    const unsplashAPIUrl = `https://api.unsplash.com/search/photos/?client_id=hz-ZNN_jBA2uRBE9Z3WYtER3ghhuV7KOL6L-BU_85Lk&query=${userInput}`;
-
-    fetch(unsplashAPIUrl)
-    .then(response => response.json())
-    .then(data => {
-        const photos = data.results;
-        if (photos.length === 0) {
-            result = "https://images7.alphacoders.com/853/thumbbig-853456.webp";
-        }else {
-            const randIdx = Math.floor(Math.random() * photos.length);
-            result = photos[randIdx].urls.small;
-        }
-    });
-
+    console.log(result);
     return result;
 }
